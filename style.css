@@ -1,12 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&family=Poppins&family=Roboto&display=swap");
 
-/* 
-font-family: 'DM Sans', sans-serif;
-font-family: 'Poppins', sans-serif;
-font-family: 'Roboto', sans-serif;
- */
+/* root styling */
 
-/* root */
 :root {
   --light: #f8f9fa;
   --secondary: #adb5bd;
@@ -25,14 +20,16 @@ body {
 a {
   text-decoration: none;
 }
+
 * > * {
   box-sizing: border-box;
 }
 
-/* global */
+/* global styling */
 .text-light {
   color: var(--light);
 }
+
 .text-secondary {
   color: var(--secondary);
 }
@@ -71,9 +68,11 @@ a {
 .display-1 {
   font-size: 22px;
 }
+
 .display-2 {
   font-size: 16px;
 }
+
 .display-3 {
   font-size: 14px;
 }
@@ -95,12 +94,14 @@ a {
   border-radius: 4px;
   background-color: var(--secondary-color);
 }
+
 .object-fit {
   max-height: 120px;
   height: 80px;
   width: 80px;
   object-fit: fill;
 }
+
 .d-flex {
   display: flex;
 }
@@ -112,6 +113,7 @@ a {
 .justify-content-center {
   justify-content: center;
 }
+
 .justify-content-between {
   justify-content: space-between;
 }
@@ -174,9 +176,9 @@ a {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-/* section */
+/* section styling */
 
-/* ----nav memu----- */
+/* ------- Navigation Menu ---------- */
 .navbar {
   position: relative;
   display: flex;
@@ -199,13 +201,14 @@ a {
 .nav-link {
   font-size: 18px;
   margin: 12px;
-  font-family: "Poppins", sans-serif;
   color: var(--dark);
+  font-family: "Poppins", sans-serif;
 }
 
 .nav-link:hover {
   color: var(--primary-color);
 }
+
 .search-box {
   display: inline;
   border-right: 1px solid var(--secondary);
@@ -227,6 +230,10 @@ a {
   outline: none;
 }
 
+/* ------- .Navigation Menu ---------- */
+
+/* ----------- Main Section ---------- */
+
 #site-main {
   margin-top: 8em;
 }
@@ -246,7 +253,7 @@ a {
 
 /* ----------- .Main Section ---------- */
 
-/* footer */
+/* ----------- footer ---------- */
 #footer {
   padding-top: 4em;
 }
@@ -265,6 +272,8 @@ a {
   padding: 10px 0;
   border-top: 2px solid var(--light);
 }
+
+/* ----------- .footer ---------- */
 
 /* ----------- article page ------- */
 
@@ -312,7 +321,39 @@ a {
 
 /* ----------- .article page ------- */
 
-/* MQs */
+/* ----------- sidebar page ------- */
+#sidebar .categories a {
+  padding: 1em 3em;
+  font-size: 18px;
+  margin-bottom: 1em;
+  background-color: var(--light);
+  border-radius: 99px;
+}
+
+#sidebar .categories a:hover {
+  background-color: var(--primary-color);
+  color: var(--light);
+}
+
+/* ----------- .sidebar page ------- */
+
+/* ----------- sticky ------- */
+
+.sticky {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+/* ----------- .sticky ------- */
+
+/* Media Query */
+
 .row {
   display: flex;
 }
@@ -323,14 +364,34 @@ a {
   padding-right: 35px;
 }
 
+.col-8 {
+  flex: 0 0 70%;
+  max-width: 70%;
+}
+
+.col-4 {
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+
 @media (max-width: 1024px) {
   .row {
     flex-wrap: wrap;
   }
+
   .col-3 {
     flex: 0 0 50%;
     max-width: 50%;
-    padding-right: 35px;
+  }
+
+  .col-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .col-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 
@@ -338,16 +399,21 @@ a {
   .navbar {
     flex-direction: column;
   }
+
+  #site-main {
+    margin-top: 14em;
+  }
 }
 
 @media (max-width: 768px) {
   .grid .grid-item {
     width: calc(50% - 20px);
   }
+
   .col-3 {
     flex: 0 0 100%;
-    max-width: 100%;
-    padding-right: 35px;
+    max-width: calc(100% - 50px);
+    padding-top: 40px 50px;
   }
 }
 
@@ -355,17 +421,20 @@ a {
   .toggle-button {
     display: initial;
   }
-  .navbar .nav-link {
-    display: block;
-    text-align: center;
-  }
-  .search-box {
-    border-right: none;
-  }
+
   .collapse {
     max-height: 0;
     overflow: hidden;
-    transition: all 0.8s ease-in;
+    transition: all 0.8s cubic-bezier(0.51, -0.15, 0, 0.98);
+  }
+
+  .collapse .nav-link {
+    display: block;
+    text-align: center;
+  }
+
+  .search-box {
+    border-right: none;
   }
 
   .collapse-toggle {
@@ -374,5 +443,9 @@ a {
 
   .grid .grid-item {
     width: calc(100% - 20px);
+  }
+
+  #site-main {
+    margin-top: 6em;
   }
 }
